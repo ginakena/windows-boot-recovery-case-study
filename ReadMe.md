@@ -69,3 +69,11 @@ Corruption in the Windows Component-Based Servicing (CBS) store, deep enough tha
 
 ## Resolution
 Ended up doing a clean Windows install. Created installation media, booted from USB, and reinstalled — which wiped out the corrupted servicing store and got the system back to a stable, working state.
+
+## Tools Used
+`chkdsk` · `sfc` · `DISM` · `bootrec` · `bcdboot` · `diskpart` · `reagentc` · Reliability Monitor · Rufus · Windows Media Creation Tool
+
+## Key Takeaways
+- Disk health, file integrity, and boot config are three separate things — testing each one on its own narrows things down fast instead of guessing
+- When DISM fails and gives you nothing useful on screen, `dism.log` is where the real answer is hiding
+- "Reset this PC" not showing up isn't random — it can be a symptom of the same underlying corruption as everything else
