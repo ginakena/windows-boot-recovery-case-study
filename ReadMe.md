@@ -63,3 +63,9 @@ Failed with `HRESULT = 0xd000014c`. Checked `dism.log` and found the actual fail
 ### 7. Hit a Wall
 - Tried `Uninstall Updates` — failed, system was too unstable to roll back cleanly
 - `Reset this PC` wasn't even showing up as an option in recovery, which traced back to the same CBS corruption (`reagentc /info` confirmed WinRE itself was fine, so the option being missing pointed right back to the servicing store)
+
+## Root Cause
+Corruption in the Windows Component-Based Servicing (CBS) store, deep enough that SFC, DISM, and even Reset this PC couldn't touch it — even though the disk and personal files were completely fine.
+
+## Resolution
+Ended up doing a clean Windows install. Created installation media, booted from USB, and reinstalled — which wiped out the corrupted servicing store and got the system back to a stable, working state.
